@@ -1,0 +1,527 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Independent English Proposal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: single-column document; navy cover, three plans side by side with Complete highlighted, comparison table, phase sheets, add-ons, requirements, costs and terms */
+:root{
+  --paper:#F6F7F9; --surface:#FFFFFF; --ink:#13213B; --ink-2:#47526A; --line:#D9DEE7; --soft:#ECEFF4;
+  --navy:#13213B; --on-navy:#F2F4F8; --on-navy-2:#B9C2D3; --navy-accent:#F07C90; --navy-line:rgba(255,255,255,.16);
+  --red:#B3122E; --red-soft:#F7E3E7; --good:#1E7A4C; --good-soft:#E2F2E9;
+  --display:"Newsreader", Georgia, "Times New Roman", serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0E1524; --surface:#141D30; --ink:#E7EBF3; --ink-2:#A3AEC4; --line:#2A3550; --soft:#1A2440;
+  --navy:#0A1020; --on-navy:#EEF1F7; --on-navy-2:#9AA6BE; --navy-accent:#F07C90; --navy-line:rgba(255,255,255,.14);
+  --red:#F0647C; --red-soft:#3A1A24; --good:#5BC793; --good-soft:#15301F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0E1524; --surface:#141D30; --ink:#E7EBF3; --ink-2:#A3AEC4; --line:#2A3550; --soft:#1A2440;
+  --navy:#0A1020; --on-navy:#EEF1F7; --on-navy-2:#9AA6BE; --navy-accent:#F07C90; --navy-line:rgba(255,255,255,.14);
+  --red:#F0647C; --red-soft:#3A1A24; --good:#5BC793; --good-soft:#15301F; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body)}
+.wrap{max-width:920px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:clamp(1.6rem,3.4vw,2.1rem)}
+h3{font-size:1.35rem}
+p{margin:0}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:6px}
+.eyebrow{font:600 .74rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-2)}
+.small{font-size:.88rem}
+
+.cover{background:var(--navy);color:var(--on-navy)}
+.cover .wrap{padding-block:52px 40px;display:grid;gap:24px}
+.cover .eyebrow{color:var(--navy-accent)}
+.cover h1{font-size:clamp(2.3rem,6vw,3.5rem);letter-spacing:-.01em}
+.cover h1 em{font-style:italic;font-weight:500;color:var(--on-navy-2)}
+.cover .lead{font-size:1.08rem;max-width:60ch;color:var(--on-navy-2)}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px 28px;border-top:1px solid var(--navy-line);padding-top:20px;margin:0}
+.meta dt{font:600 .7rem/1.2 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-2)}
+.meta dd{margin:4px 0 0;font-weight:600}
+
+nav.toc{border-bottom:1px solid var(--line);background:var(--surface)}
+nav.toc .wrap{display:flex;gap:6px 20px;flex-wrap:wrap;padding-block:14px}
+nav.toc a{font-size:.9rem;font-weight:500;color:var(--ink-2);text-decoration:none}
+nav.toc a:hover{color:var(--red)}
+
+main .wrap{display:grid;gap:64px;padding-block:52px 72px}
+section{display:grid;gap:20px;scroll-margin-top:16px}
+.sec-head{display:grid;gap:10px}
+.sec-head p{max-width:64ch;color:var(--ink-2)}
+
+/* planos */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:14px;align-content:start;}
+.plan.best{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.plan .tag{font:600 .7rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.plan.best .tag{color:var(--navy-accent)}
+.plan h3{font-size:1.5rem}
+.plan .for{font-size:.9rem;color:var(--ink-2)}
+.plan.best .for{color:var(--on-navy-2)}
+.plan .price{display:grid;gap:4px}
+.plan .price .v{font:500 1.9rem/1 var(--mono);font-variant-numeric:tabular-nums}
+.plan .price .was{font-size:.85rem;color:var(--ink-2)}
+.plan.best .price .was{color:var(--on-navy-2)}
+.plan .price .was s{font-family:var(--mono)}
+.save{display:inline-block;font-weight:600;font-size:.82rem;color:var(--good);background:var(--good-soft);padding:3px 10px;border-radius:999px;justify-self:start}
+.bfbox{display:grid;gap:6px;border:1px dashed var(--navy-accent);border-radius:10px;padding:12px 14px}
+.bfbox .v{font:500 1.9rem/1 var(--mono);font-variant-numeric:tabular-nums}
+.bfnote{font-size:.82rem;color:var(--on-navy-2)}
+.plan .price .v.norm{font-size:1.5rem}
+.bf{justify-self:start;font:700 .74rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--navy-accent);padding:6px 10px;border-radius:6px}
+.plan .foot{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:4px;font-size:.84rem;color:var(--ink-2)}
+.plan.best .foot{border-color:var(--navy-line);color:var(--on-navy-2)}
+.plan .foot span{display:flex;justify-content:space-between;gap:10px}
+ul.check,ul.plain{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+ul.check li{padding-left:24px;position:relative;font-size:.93rem}
+ul.check li::before{content:"";position:absolute;left:2px;top:.5em;width:11px;height:6px;border-left:2px solid var(--good);border-bottom:2px solid var(--good);transform:rotate(-45deg)}
+.plan.best ul.check li::before{border-color:#7FD3A6}
+ul.plain li{font-size:.92rem;padding-left:14px;position:relative}
+ul.plain li::before{content:"";position:absolute;left:0;top:.68em;width:5px;height:5px;border-radius:50%;background:var(--ink-2)}
+@media (max-width:820px){.plans{grid-template-columns:1fr}}
+
+/* comparativo */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 .72rem/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);background:var(--soft)}
+tr:last-child td{border-bottom:0}
+td.c,th.c{text-align:center;white-space:nowrap}
+td.r,th.r{text-align:right;white-space:nowrap}
+td b{font-weight:600}
+.cmp th.hl,.cmp td.hl{background:var(--red-soft)}
+.cmp .yes{color:var(--good);font-weight:700}
+.cmp .no{color:var(--ink-2)}
+.cmp tr.sum td{font-weight:600;background:var(--soft)}
+.cmp tr.sum td.hl{background:var(--red-soft)}
+.req{font-size:.8rem;color:var(--ink-2)}
+
+/* fichas */
+.phase{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.phase-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 24px;padding:22px 24px 18px;border-bottom:1px solid var(--line)}
+.phase-top .goal{grid-column:1/-1;max-width:66ch;color:var(--ink-2)}
+.phase-title{display:grid;gap:8px}
+.pprice{text-align:right;display:grid;gap:2px;align-content:start}
+.pprice .v{font:500 1.3rem/1.1 var(--mono);font-variant-numeric:tabular-nums}
+.pprice .s{font-size:.82rem;color:var(--ink-2)}
+.phase-body{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+.phase-body > div{padding:20px 24px;display:grid;gap:10px;align-content:start}
+.phase-body > div + div{border-left:1px solid var(--line);background:var(--soft)}
+.label{font:600 .72rem/1.2 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.8rem;font-weight:500;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.accept{padding:16px 24px;border-top:1px solid var(--line);display:grid;gap:6px}
+.accept p{font-size:.92rem}
+@media (max-width:720px){
+  .phase-top{grid-template-columns:1fr}.pprice{text-align:left}
+  .phase-body{grid-template-columns:1fr}.phase-body > div + div{border-left:0;border-top:1px solid var(--line)}
+}
+
+.need{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.need > div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;align-content:start}
+@media (max-width:640px){.need{grid-template-columns:1fr}}
+.now{background:var(--navy);color:var(--on-navy);border-radius:12px;padding:20px 22px;display:grid;gap:12px}
+.now .label{color:var(--navy-accent)}
+.now ul.plain li{color:var(--on-navy-2)}
+.now ul.plain li b{color:var(--on-navy)}
+.now ul.plain li::before{background:var(--navy-accent)}
+.now p.small{color:var(--on-navy-2)}
+
+.terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.terms > div{padding:18px 20px;display:grid;gap:6px;border-bottom:1px solid var(--line)}
+.terms > div:nth-child(odd){border-right:1px solid var(--line)}
+.terms > div:nth-last-child(-n+2){border-bottom:0}
+.terms b{font-weight:600}
+.terms p{font-size:.93rem;color:var(--ink-2)}
+@media (max-width:640px){.terms{grid-template-columns:1fr}.terms > div:nth-child(odd){border-right:0}.terms > div:nth-last-child(2){border-bottom:1px solid var(--line)}}
+
+.faq{display:grid;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:last-child{border-bottom:0}
+.faq summary{list-style:none;cursor:pointer;padding:15px 18px;display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:baseline;font-weight:600;font-size:.96rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .n{font-family:var(--mono);color:var(--red);font-size:.85rem}
+.faq summary .plus{color:var(--ink-2);font-family:var(--mono)}
+.faq details[open] .plus{transform:rotate(45deg)}
+.faq .a{padding:0 18px 16px 62px;color:var(--ink-2);font-size:.94rem;max-width:72ch}
+@media (max-width:520px){.faq .a{padding-left:18px}}
+
+.next{background:var(--navy);color:var(--on-navy);border-radius:12px;padding:28px;display:grid;gap:14px}
+.next .eyebrow{color:var(--navy-accent)}
+.next ol{margin:0;padding-left:1.2em;display:grid;gap:8px;color:var(--on-navy-2)}
+.next ol b{color:var(--on-navy)}
+footer{font-size:.82rem;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{padding-block:24px}
+</style>
+
+<header class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Proposal</p>
+    <h1>Independent English<br><em>website and teaching platform</em></h1>
+    <p class="lead">A bilingual website that brings in trial lesson requests, a portal where each student finds their lessons and materials, and an admin area for managing students, lesson blocks and replacement lessons.</p>
+    <dl class="meta">
+      <div><dt>For</dt><dd>Derrick Roger Manning</dd></div>
+      <div><dt>From</dt><dd>Guilherme Souza</dd></div>
+      <div><dt>Date</dt><dd>3 November 2026</dd></div>
+      <div><dt>Payment</dt><dd>Per phase, once approved</dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Proposal sections">
+  <div class="wrap">
+    <a href="#plans">Plans</a><a href="#compare">Plans and individual items</a><a href="#addons">Add-ons</a><a href="#phases">What each phase delivers</a><a href="#needs">What I need from you</a><a href="#costs">Running costs</a><a href="#terms">Terms</a><a href="#questions">Your 15 questions</a>
+  </div>
+</nav>
+
+<main>
+<div class="wrap">
+
+<section id="plans">
+  <div class="sec-head">
+    <p class="eyebrow">Plans</p>
+    <h2>Three plans, from website to full system</h2>
+    <p>The more complete the plan, the bigger the discount, because the website, portal and admin area share the same foundations and are built one after another. You can also order each part individually, as you asked.</p>
+  </div>
+  <div class="plans">
+    <article class="plan" aria-labelledby="p1">
+      <p class="tag">Essential</p>
+      <div><h3 id="p1">Website</h3><p class="for">To present your teaching and receive trial lesson requests.</p></div>
+      <div class="price"><span class="v">R$ 4,500</span><span class="was">individually <s>R$ 4,900</s></span><span class="save">You save R$ 400</span></div>
+      <ul class="check">
+        <li>Bilingual public website with a bespoke visual identity</li>
+        <li>Editor for your text, packages and availability</li>
+        <li>30 days' support</li>
+      </ul>
+      <div class="foot"><span><span>Build time</span><span class="num">3 weeks</span></span></div>
+    </article>
+    <article class="plan" aria-labelledby="p2">
+      <p class="tag">Professional</p>
+      <div><h3 id="p2">Website and portal</h3><p class="for">To bring lessons, materials and feedback together in one place.</p></div>
+      <div class="price"><span class="v">R$ 8,400</span><span class="was">individually <s>R$ 10,500</s></span><span class="save">You save R$ 2,100</span></div>
+      <ul class="check">
+        <li>Everything in Essential</li>
+        <li>Student portal with login and materials</li>
+        <li>Push notifications</li>
+        <li>Online quizzes</li>
+        <li>30 days' support</li>
+      </ul>
+      <div class="foot"><span><span>Build time</span><span class="num">5 weeks</span></span></div>
+    </article>
+    <article class="plan best" aria-labelledby="p3">
+      <p class="tag">Complete · recommended</p>
+      <div><h3 id="p3">Website, portal and admin area</h3><p class="for">To take students, scheduling, lesson blocks and payments off the spreadsheet.</p></div>
+      <div class="price"><span class="was">List price</span><span class="v norm">R$ 15,900</span><span class="was">individually <s>R$ 18,250</s></span></div>
+      <div class="bfbox"><p class="bf">Black November</p><span class="v">R$ 11,900</span><span class="bfnote">Only when agreed in November</span><span class="save">R$ 4,000 off (25%)</span></div>
+      <ul class="check">
+        <li>Everything in Professional</li>
+        <li>Admin area, scheduling, lesson blocks and replacement credits</li>
+        <li>Online payment: Pix and card</li>
+        <li>Google Calendar</li>
+        <li>Lowest prices on add-ons</li>
+        <li>60 days' support</li>
+      </ul>
+      <div class="foot"><span><span>Build time</span><span class="num">about 8 weeks</span></span></div>
+    </article>
+  </div>
+  <p class="muted small"><b>Pay when you're happy:</b> nothing up front. Each phase is paid only once you've approved it.</p>
+</section>
+
+<section id="compare">
+  <div class="sec-head">
+    <p class="eyebrow">Plans and individual items</p>
+    <h2>What each option includes</h2>
+  </div>
+  <div class="table-wrap">
+    <table class="cmp">
+      <thead><tr><th>Item</th><th class="r">Individually</th><th class="c">Essential</th><th class="c">Professional</th><th class="c hl">Complete</th></tr></thead>
+      <tbody>
+        <tr><td><b>Phase 1</b> · Bilingual public website</td><td class="r num">R$ 4,900</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c hl yes">✓</td></tr>
+        <tr><td><b>Phase 2</b> · Student portal</td><td class="r num">R$ 4,900</td><td class="c no">—</td><td class="c yes">✓</td><td class="c hl yes">✓</td></tr>
+        <tr><td>Push notifications</td><td class="r num">R$ 350</td><td class="c no">—</td><td class="c yes">✓</td><td class="c hl yes">✓</td></tr>
+        <tr><td>Online quizzes</td><td class="r num">R$ 350</td><td class="c no">—</td><td class="c yes">✓</td><td class="c hl yes">✓</td></tr>
+        <tr><td><b>Phase 3</b> · Admin area, scheduling and lesson blocks</td><td class="r num">R$ 6,900</td><td class="c no">—</td><td class="c no">—</td><td class="c hl yes">✓</td></tr>
+        <tr><td>Online payment: Pix and card</td><td class="r num">R$ 350</td><td class="c no">—</td><td class="c no">—</td><td class="c hl yes">✓</td></tr>
+        <tr><td>Google Calendar</td><td class="r num">R$ 500</td><td class="c no">—</td><td class="c no">—</td><td class="c hl yes">✓</td></tr>
+        <tr><td>Support after delivery</td><td class="r">30 days</td><td class="c">30 days</td><td class="c">30 days</td><td class="c hl">60 days</td></tr>
+        <tr class="sum"><td>Price</td><td class="r">sum of items</td><td class="c num">R$ 4,500</td><td class="c num">R$ 8,400</td><td class="c hl num">R$ 15,900<br><span class="req">Black November: R$ 11,900</span></td></tr>
+        <tr><td>Build time</td><td class="r">—</td><td class="c">3 weeks</td><td class="c">5 weeks</td><td class="c hl">~8 weeks</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted small">Ordered individually, Phase 1 is R$ 4,200 in English only. Phase 2 requires Phase 1, and Phase 3 requires Phase 2.</p>
+</section>
+
+<section id="addons">
+  <div class="sec-head">
+    <p class="eyebrow">Add-ons</p>
+    <h2>Outside the plans, cheaper alongside them</h2>
+    <p>These aren't part of any plan. Ordered with a plan, they cost less.</p>
+  </div>
+  <div class="table-wrap">
+    <table class="cmp">
+      <thead><tr><th>Add-on</th><th>What's included</th><th class="r">Individually</th><th class="c">Professional</th><th class="c hl">Complete</th></tr></thead>
+      <tbody>
+        <tr><td><b>Automated WhatsApp</b><br><span class="req">requires Phase 3</span></td><td>Automated messages via Twilio, such as lesson and renewal reminders. We'll agree together which messages to send. Twilio's per-message charges are paid by you.</td><td class="r num">R$ 1,200</td><td class="c no">—</td><td class="c hl num">R$ 800</td></tr>
+        <tr><td><b>Converting lessons into quizzes</b><br><span class="req">requires quizzes</span></td><td>I turn the exercises in one of your presentations into a quiz, with the answer key checked by you.</td><td class="r num">R$ 120/lesson</td><td class="c num">R$ 90/lesson</td><td class="c hl num">R$ 80/lesson</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="phases">
+  <div class="sec-head">
+    <p class="eyebrow">What each phase delivers</p>
+    <h2>Phases and modules in detail</h2>
+  </div>
+
+  <article class="phase" aria-labelledby="f1">
+    <div class="phase-top">
+      <div class="phase-title"><p class="eyebrow">Phase 1 · 3 weeks</p><h3 id="f1">Bilingual public website</h3></div>
+      <div class="pprice"><span class="v num">R$ 4,900</span><span class="s">individually · English only R$ 4,200</span></div>
+      <p class="goal">Visitors arriving from LinkedIn, a referral or Google quickly understand who you teach, what lessons involve and why your experience matters, and then request a trial lesson.</p>
+    </div>
+    <div class="phase-body">
+      <div>
+        <p class="label">Included</p>
+        <ul class="check">
+          <li>A bespoke visual identity based on your brief, with 2 rounds of revisions</li>
+          <li>Pages: Home, English for insurance and finance, Lessons, How it works (packages and FAQs) and About</li>
+          <li>Trial lesson requests via a short form and WhatsApp, with a waiting-list mode</li>
+          <li>English and Portuguese with a language switch on every page; AI translation (Groq), reviewed by you</li>
+          <li>Editor for your text, packages, availability, testimonials and images, with preview</li>
+          <li>Mobile layouts, accessibility, basic SEO and enquiry tracking</li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Tools</p>
+        <div class="chips"><span class="chip">React</span><span class="chip">Supabase</span><span class="chip">Hostinger VPS or AWS</span><span class="chip">SMTP email</span><span class="chip">Groq (translation)</span></div>
+      </div>
+    </div>
+    <div class="accept">
+      <p class="label">Done when</p>
+      <p>On a phone, a visitor switches language and sends a request that reaches you. You change a service description and the availability message and publish it yourself.</p>
+    </div>
+  </article>
+
+  <article class="phase" aria-labelledby="f2">
+    <div class="phase-top">
+      <div class="phase-title"><p class="eyebrow">Phase 2 · 2 weeks</p><h3 id="f2">Student portal</h3></div>
+      <div class="pprice"><span class="v num">R$ 4,900</span><span class="s">individually · requires Phase 1</span></div>
+      <p class="goal">Brings together what currently goes out by message and email. Each student sees only their own information.</p>
+    </div>
+    <div class="phase-body">
+      <div>
+        <p class="label">Included</p>
+        <ul class="check">
+          <li>Student login with email and password or a link sent by email, with password reset</li>
+          <li>Next lesson with the date, the time in the student's time zone and the Meet link</li>
+          <li>Upcoming lessons and history, with clear notice when a replacement lesson is booked</li>
+          <li>Presentations, homework, corrections and feedback for each lesson</li>
+          <li>PowerPoint to download and PDF to read on a phone</li>
+          <li>Your private notes kept separate from what the student sees</li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Tools</p>
+        <div class="chips"><span class="chip">Supabase Auth</span><span class="chip">Private file storage</span><span class="chip">SMTP email</span></div>
+        <p class="label">Modules in this phase</p>
+        <ul class="plain">
+          <li><b>Push notifications:</b> alerts on the student's phone and browser about lessons, homework and renewals</li>
+          <li><b>Online quizzes:</b> green or red, ✓ or ✗ and an explanation, with attempts and scores saved</li>
+        </ul>
+      </div>
+    </div>
+    <div class="accept">
+      <p class="label">Done when</p>
+      <p>Two test students can't see each other's records or files, even with a copied link.</p>
+    </div>
+  </article>
+
+  <article class="phase" aria-labelledby="f3">
+    <div class="phase-top">
+      <div class="phase-title"><p class="eyebrow">Phase 3 · 3 weeks</p><h3 id="f3">Admin area, scheduling and lesson blocks</h3></div>
+      <div class="pprice"><span class="v num">R$ 6,900</span><span class="s">individually · requires Phase 2</span></div>
+      <p class="goal">An admin area built around your routine: who's studying, what's been agreed, which lessons are booked and what needs doing next, without a separate spreadsheet.</p>
+    </div>
+    <div class="phase-body">
+      <div>
+        <p class="label">Included</p>
+        <ul class="check">
+          <li>Customisable admin area: statuses, record fields, rules and wording you can adjust yourself</li>
+          <li>Each student's own Meet link, editable on their record</li>
+          <li>Who has logged in to the portal and when: last login and history per student</li>
+          <li>Activate, pause or remove a student's access, and view the portal as they see it</li>
+          <li>Student records: contact details, time zone, level, goals, agreed frequency and rate</li>
+          <li>Recurring weekly lessons with correct time zones and daylight saving</li>
+          <li>Change a single lesson without affecting the series, with a record of what changed</li>
+          <li>Prepaid lesson blocks and replacement credits, with the reason for every adjustment</li>
+          <li>Cancellation, no-show and renewal rules set by you</li>
+          <li>Payment records and tracking of invoices requested from your accountant</li>
+          <li>Upcoming renewals list and data export</li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Tools</p>
+        <div class="chips"><span class="chip">Supabase (PostgreSQL)</span><span class="chip">IANA time zones</span><span class="chip">CSV export</span></div>
+        <p class="label">Modules in this phase</p>
+        <ul class="plain">
+          <li><b>Online payment:</b> Pix via Mercado Pago and card via Stripe, with automatic confirmation that adds credits without duplicates</li>
+          <li><b>Google Calendar:</b> confirmed lessons appear in your calendar, with an alert if syncing fails</li>
+        </ul>
+      </div>
+    </div>
+    <div class="accept">
+      <p class="label">Done when</p>
+      <p>A student with 8 new lessons and 2 replacement credits shows a balance of 10, with the source of each lesson visible. A postponed lesson doesn't create a double booking.</p>
+    </div>
+  </article>
+</section>
+
+<section id="needs">
+  <div class="sec-head">
+    <p class="eyebrow">What I need from you</p>
+    <h2>Everything the project depends on you for</h2>
+    <p>Feel free to send things gradually. Each phase starts once its items arrive.</p>
+  </div>
+  <div class="now">
+    <p class="label">To get started</p>
+    <ul class="plain">
+      <li><b>Supabase:</b> an account under your email</li>
+      <li><b>Hosting:</b> a Hostinger VPS or an AWS account</li>
+      <li><b>Sending email (SMTP):</b> the address that will send confirmations and alerts, with an app password</li>
+      <li><b>Google Cloud Console:</b> a project created with your Google account</li>
+      <li><b>Domain:</b> a new registration or access to your current one</li>
+    </ul>
+    <p class="small">You just create the accounts in your name and give me access; I'll handle the set-up.</p>
+  </div>
+  <div class="need">
+    <div><p class="label">Content · Phase 1</p><ul class="plain">
+      <li>Final business name and logo, if you have one</li>
+      <li>Professional photo and biography</li>
+      <li>Wording for your qualifications (CELTA, TEFL, AAT, CII)</li>
+      <li>Draft text in English for your services and how lessons work</li>
+      <li>Packages and prices that can be published</li>
+      <li>FAQs</li>
+      <li>Testimonials, with students' permission</li>
+      <li>Public contact details: email, WhatsApp and LinkedIn</li>
+      <li>2 or 3 websites whose look you like</li>
+    </ul></div>
+    <div><p class="label">Business rules · Phase 3</p><ul class="plain">
+      <li>Policy for student cancellations and teacher postponements</li>
+      <li>Rules for no-shows and bank holidays</li>
+      <li>How long replacement credits remain valid</li>
+      <li>Renewal rule: by date or by lessons delivered</li>
+      <li>How to handle special rates and refunds</li>
+      <li>Your accountant's contact details and how they issue invoices</li>
+      <li>Which WhatsApp messages to automate, if you take the add-on</li>
+    </ul></div>
+    <div><p class="label">Current data · Phases 2 and 3</p><ul class="plain">
+      <li>List of students with email, time zone and preferred language</li>
+      <li>Each student's weekly slot and Meet link</li>
+      <li>Current balances and outstanding replacement lessons</li>
+      <li>PowerPoint presentations with PDF versions</li>
+    </ul></div>
+    <div><p class="label">Accounts in your name</p><ul class="plain">
+      <li>Domain (new registration or access to your current one)</li>
+      <li>Hosting: Hostinger VPS or AWS</li>
+      <li>Supabase Cloud</li>
+      <li>Sending email (SMTP)</li>
+      <li>Mercado Pago and Stripe, if online payment is included</li>
+      <li>Google Cloud Console, for Google login and Calendar</li>
+      <li>Twilio and a WhatsApp Business number, if you take the add-on</li>
+      <li>Final wording of the privacy notice and terms</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="costs">
+  <div class="sec-head">
+    <p class="eyebrow">Running costs</p>
+    <h2>Paid by you, directly to each provider</h2>
+    <p>The accounts are in your name and nothing goes through me. Figures are approximate; anything billed in US dollars varies with the exchange rate.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Service</th><th>What it's for</th><th class="r">Approximate cost</th></tr></thead>
+      <tbody>
+        <tr><td><b>Hostinger VPS</b> or <b>AWS</b></td><td>Server for the website and portal (choose one)</td><td class="r num">Hostinger R$ 35–70/month<br>AWS from ~US$ 10/month</td></tr>
+        <tr><td><b>Supabase Cloud</b></td><td>Database, logins and private files</td><td class="r num">free to start<br>Pro US$ 25/month</td></tr>
+        <tr><td><b>Domain</b></td><td>The website's address</td><td class="r num">~R$ 40/year</td></tr>
+        <tr><td><b>Email (SMTP)</b></td><td>Sending confirmations and alerts</td><td class="r">included with your email</td></tr>
+        <tr><td><b>Google Cloud Console</b></td><td>Google login and Calendar</td><td class="r">free at your volume</td></tr>
+        <tr><td><b>Groq</b></td><td>Automatic translation into Portuguese</td><td class="r">free or pennies a month</td></tr>
+        <tr><td><b>Push notifications</b></td><td>Alerts on phones and browsers</td><td class="r">free</td></tr>
+        <tr><td><b>Mercado Pago</b></td><td>Pix</td><td class="r num">0.99% per Pix received</td></tr>
+        <tr><td><b>Stripe</b></td><td>UK, Brazilian and international cards</td><td class="r num">3.99% + R$ 0.39 per sale</td></tr>
+        <tr><td><b>Twilio</b></td><td>Automated WhatsApp (if ordered)</td><td class="r num">~US$ 0.005 per message<br>+ Meta fee (~R$ 0.08 per reminder)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted small">Supabase's free plan pauses after 7 days without activity, so with active students I'd recommend Pro. Estimated fixed cost: R$ 40–80 a month to start, plus US$ 25 with Supabase Pro.</p>
+</section>
+
+<section id="terms">
+  <div class="sec-head">
+    <p class="eyebrow">Terms</p>
+    <h2>Payment, revisions and ownership</h2>
+  </div>
+  <div class="terms">
+    <div><b>Pay when you're happy</b><p>Nothing up front. Each phase is paid only once it's been delivered and approved, by Pix or bank transfer. Phase 3 starts once your lesson policy is agreed in writing.</p></div>
+    <div><b>Revisions</b><p>2 rounds on the design and 1 round of changes on the test version of each phase.</p></div>
+    <div><b>Out of scope</b><p>Quoted in writing before any work starts, at R$ 120 an hour or a fixed price.</p></div>
+    <div><b>Support</b><p>30 days of fixes after delivery, or 60 days on the Complete plan. After that, optional maintenance at R$ 290 a month.</p></div>
+    <div><b>Ownership</b><p>Domain, content, design, code and accounts are all in your name, ready to hand to another supplier should you ever wish.</p></div>
+    <div><b>Not included</b><p>Photo shoots, copywriting from scratch, advertising, and any guarantee of Google rankings.</p></div>
+  </div>
+</section>
+
+<section id="questions">
+  <div class="sec-head">
+    <p class="eyebrow">Your 15 questions</p>
+    <h2>Answers to your brief</h2>
+  </div>
+  <div class="faq">
+    <details><summary><span class="n">01</span><span>Which first release do you recommend, and what would you defer?</span><span class="plus">+</span></summary><p class="a">The public website is the first delivery on every plan. I'd recommend the Complete plan: R$ 15,900 list price, or R$ 11,900 if agreed in November. I'd leave self-booking and AI practice for later.</p></details>
+    <details><summary><span class="n">02</span><span>Will you handle design and development? Who's responsible for copy, translation, images, testing and maintenance?</span><span class="plus">+</span></summary><p class="a">I handle design, development, testing and maintenance. The Portuguese version is translated automatically by AI and you review it. You provide the draft English text and photos, and sign off the final versions.</p></details>
+    <details><summary><span class="n">03</span><span>Which platform would you use, and why?</span><span class="plus">+</span></summary><p class="a">A bespoke system in React, with Supabase Cloud as the database and hosting on a Hostinger VPS or AWS, all in your name. There's no per-student charge or website-builder licence, and everything can be moved to another server. Builders such as Base44 struggle with specific rules like replacement credits and make it harder to change supplier.</p></details>
+    <details><summary><span class="n">04</span><span>Can you show me how I'd edit a package, update availability and upload a lesson?</span><span class="plus">+</span></summary><p class="a">Yes. At sign-off you'll do all three yourself. If needed, I'll record video tutorials on request and keep them in a Google Drive folder. Only new pages and layout changes need me.</p></details>
+    <details><summary><span class="n">05</span><span>What's the full price, and the ongoing cost?</span><span class="plus">+</span></summary><p class="a">Essential R$ 4,500, Professional R$ 8,400 and Complete R$ 15,900 (R$ 11,900 if agreed in November), or each item individually at the prices in the table. Automated WhatsApp and lesson conversion are add-ons. Running costs are set out above and paid by you directly to each provider. All prices in Brazilian reais.</p></details>
+    <details><summary><span class="n">06</span><span>How will English and Portuguese be handled?</span><span class="plus">+</span></summary><p class="a">Every page exists in both languages, with a language switch throughout. The Portuguese version is translated automatically by AI and reviewed by you. In the editor, the two texts sit side by side. Forms, emails and the portal follow each student's language.</p></details>
+    <details><summary><span class="n">07</span><span>How will recurring slots, time zones, daylight saving and rescheduling work?</span><span class="plus">+</span></summary><p class="a">Weekly lessons are anchored to São Paulo time, and the system works out each student's local time, including daylight-saving changes abroad. Rescheduling a lesson changes only that date. Students propose times and you confirm them.</p></details>
+    <details><summary><span class="n">08</span><span>Can you demonstrate replacement credits, individual rates and renewals without losing lessons?</span><span class="plus">+</span></summary><p class="a">Yes. Every purchase, replacement and lesson delivered is recorded with a reason, and the balance is always calculated, never typed in. The 8 new lessons plus 2 replacements case is a sign-off test for Phase 3.</p></details>
+    <details><summary><span class="n">09</span><span>How will private files and student records be protected?</span><span class="plus">+</span></summary><p class="a">Each student can only access their own information, files open through links that expire, your login has two-factor authentication, and there's a daily backup. You can remove my access at any time.</p></details>
+    <details><summary><span class="n">10</span><span>What needs checking before a fixed price, and what happens if an integration fails?</span><span class="plus">+</span></summary><p class="a">I'd need to confirm your Mercado Pago, Stripe and Google accounts (and Twilio, if you take the add-on), your accountant's process, and which WhatsApp messages you'd like automated. If an integration fails, you can record the payment or lesson manually and carry on.</p></details>
+    <details><summary><span class="n">11</span><span>How will PowerPoint files be handled?</span><span class="plus">+</span></summary><p class="a">Students can download the original or read the PDF you export. Clickable answer boxes only work in PowerPoint; for interactive exercises in the browser, there are the online quizzes and the lesson conversion add-on.</p></details>
+    <details><summary><span class="n">12</span><span>What will I review at each milestone, and how are changes handled?</span><span class="plus">+</span></summary><p class="a">In each phase you review the design and then a working test version, via a link. That's 2 rounds on the design and 1 on the test version. Anything out of scope is quoted in writing first.</p></details>
+    <details><summary><span class="n">13</span><span>What testing will you do before delivery?</span><span class="plus">+</span></summary><p class="a">iOS and Android phones, accessibility, forms reaching the right place, test students trying to access each other's data, time zones, and payments in test mode. Any defects during the support period are fixed free of charge.</p></details>
+    <details><summary><span class="n">14</span><span>Who owns what?</span><span class="plus">+</span></summary><p class="a">It's all yours: domain, content, design, code and accounts. The code lives in a repository in your name and the database can be exported in full.</p></details>
+    <details><summary><span class="n">15</span><span>What training, documentation and support are included?</span><span class="plus">+</span></summary><p class="a">Video tutorials on request, kept in a Google Drive folder, technical documentation for any future developer, and the support period of your chosen plan.</p></details>
+  </div>
+</section>
+
+<section id="next">
+  <div class="next">
+    <h2>Next steps</h2>
+    <ol>
+      <li><b>Choose</b> your plan.</li>
+      <li><b>Set up the accounts</b> and send over your content.</li>
+      <li><b>Approve</b> each phase, then pay.</li>
+    </ol>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer><div class="wrap">Prepared by Guilherme Souza for Derrick Roger Manning · Independent English · 3 November 2026</div></footer>
+
+</body></html>
