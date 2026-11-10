@@ -1,0 +1,255 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Guilherme Souza Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: portfolio; navy cover, one section per system with feature chips and a screenshot grid */
+:root{
+  --paper:#F6F7F9; --surface:#FFFFFF; --ink:#13213B; --ink-2:#47526A; --line:#D9DEE7; --soft:#ECEFF4;
+  --navy:#13213B; --on-navy:#F2F4F8; --on-navy-2:#B9C2D3; --navy-accent:#F07C90; --navy-line:rgba(255,255,255,.16);
+  --red:#B3122E; --red-soft:#F7E3E7; --good:#1E7A4C; --good-soft:#E2F2E9;
+  --display:"Newsreader", Georgia, "Times New Roman", serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0E1524; --surface:#141D30; --ink:#E7EBF3; --ink-2:#A3AEC4; --line:#2A3550; --soft:#1A2440;
+  --navy:#0A1020; --on-navy:#EEF1F7; --on-navy-2:#9AA6BE; --navy-accent:#F07C90; --navy-line:rgba(255,255,255,.14);
+  --red:#F0647C; --red-soft:#3A1A24; --good:#5BC793; --good-soft:#15301F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0E1524; --surface:#141D30; --ink:#E7EBF3; --ink-2:#A3AEC4; --line:#2A3550; --soft:#1A2440;
+  --navy:#0A1020; --on-navy:#EEF1F7; --on-navy-2:#9AA6BE; --navy-accent:#F07C90; --navy-line:rgba(255,255,255,.14);
+  --red:#F0647C; --red-soft:#3A1A24; --good:#5BC793; --good-soft:#15301F; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body)}
+.wrap{max-width:920px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:clamp(1.6rem,3.4vw,2.1rem)}
+h3{font-size:1.35rem}
+p{margin:0}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:6px}
+.eyebrow{font:600 .74rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-2)}
+.small{font-size:.88rem}
+
+.cover{background:var(--navy);color:var(--on-navy)}
+.cover .wrap{padding-block:52px 40px;display:grid;gap:24px}
+.cover .eyebrow{color:var(--navy-accent)}
+.cover h1{font-size:clamp(2.3rem,6vw,3.5rem);letter-spacing:-.01em}
+.cover h1 em{font-style:italic;font-weight:500;color:var(--on-navy-2)}
+.cover .lead{font-size:1.08rem;max-width:60ch;color:var(--on-navy-2)}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px 28px;border-top:1px solid var(--navy-line);padding-top:20px;margin:0}
+.meta dt{font:600 .7rem/1.2 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-2)}
+.meta dd{margin:4px 0 0;font-weight:600}
+
+nav.toc{border-bottom:1px solid var(--line);background:var(--surface)}
+nav.toc .wrap{display:flex;gap:6px 20px;flex-wrap:wrap;padding-block:14px}
+nav.toc a{font-size:.9rem;font-weight:500;color:var(--ink-2);text-decoration:none}
+nav.toc a:hover{color:var(--red)}
+
+main .wrap{display:grid;gap:64px;padding-block:52px 72px}
+section{display:grid;gap:20px;scroll-margin-top:16px}
+.sec-head{display:grid;gap:10px}
+.sec-head p{max-width:64ch;color:var(--ink-2)}
+
+/* planos */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:14px;align-content:start;}
+.plan.best{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.plan .tag{font:600 .7rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.plan.best .tag{color:var(--navy-accent)}
+.plan h3{font-size:1.5rem}
+.plan .for{font-size:.9rem;color:var(--ink-2)}
+.plan.best .for{color:var(--on-navy-2)}
+.plan .price{display:grid;gap:4px}
+.plan .price .v{font:500 1.9rem/1 var(--mono);font-variant-numeric:tabular-nums}
+.plan .price .was{font-size:.85rem;color:var(--ink-2)}
+.plan.best .price .was{color:var(--on-navy-2)}
+.plan .price .was s{font-family:var(--mono)}
+.save{display:inline-block;font-weight:600;font-size:.82rem;color:var(--good);background:var(--good-soft);padding:3px 10px;border-radius:999px;justify-self:start}
+.bfbox{display:grid;gap:6px;border:1px dashed var(--navy-accent);border-radius:10px;padding:12px 14px}
+.bfbox .v{font:500 1.9rem/1 var(--mono);font-variant-numeric:tabular-nums}
+.bfnote{font-size:.82rem;color:var(--on-navy-2)}
+.plan .price .v.norm{font-size:1.5rem}
+.bf{justify-self:start;font:700 .74rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--navy-accent);padding:6px 10px;border-radius:6px}
+.plan .foot{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:4px;font-size:.84rem;color:var(--ink-2)}
+.plan.best .foot{border-color:var(--navy-line);color:var(--on-navy-2)}
+.plan .foot span{display:flex;justify-content:space-between;gap:10px}
+ul.check,ul.plain{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+ul.check li{padding-left:24px;position:relative;font-size:.93rem}
+ul.check li::before{content:"";position:absolute;left:2px;top:.5em;width:11px;height:6px;border-left:2px solid var(--good);border-bottom:2px solid var(--good);transform:rotate(-45deg)}
+.plan.best ul.check li::before{border-color:#7FD3A6}
+ul.plain li{font-size:.92rem;padding-left:14px;position:relative}
+ul.plain li::before{content:"";position:absolute;left:0;top:.68em;width:5px;height:5px;border-radius:50%;background:var(--ink-2)}
+@media (max-width:820px){.plans{grid-template-columns:1fr}}
+
+/* comparativo */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 .72rem/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);background:var(--soft)}
+tr:last-child td{border-bottom:0}
+td.c,th.c{text-align:center;white-space:nowrap}
+td.r,th.r{text-align:right;white-space:nowrap}
+td b{font-weight:600}
+.cmp th.hl,.cmp td.hl{background:var(--red-soft)}
+.cmp .yes{color:var(--good);font-weight:700}
+.cmp .no{color:var(--ink-2)}
+.cmp tr.sum td{font-weight:600;background:var(--soft)}
+.cmp tr.sum td.hl{background:var(--red-soft)}
+.req{font-size:.8rem;color:var(--ink-2)}
+
+/* fichas */
+.phase{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.phase-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 24px;padding:22px 24px 18px;border-bottom:1px solid var(--line)}
+.phase-top .goal{grid-column:1/-1;max-width:66ch;color:var(--ink-2)}
+.phase-title{display:grid;gap:8px}
+.pprice{text-align:right;display:grid;gap:2px;align-content:start}
+.pprice .v{font:500 1.3rem/1.1 var(--mono);font-variant-numeric:tabular-nums}
+.pprice .s{font-size:.82rem;color:var(--ink-2)}
+.phase-body{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+.phase-body > div{padding:20px 24px;display:grid;gap:10px;align-content:start}
+.phase-body > div + div{border-left:1px solid var(--line);background:var(--soft)}
+.label{font:600 .72rem/1.2 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.8rem;font-weight:500;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.accept{padding:16px 24px;border-top:1px solid var(--line);display:grid;gap:6px}
+.accept p{font-size:.92rem}
+@media (max-width:720px){
+  .phase-top{grid-template-columns:1fr}.pprice{text-align:left}
+  .phase-body{grid-template-columns:1fr}.phase-body > div + div{border-left:0;border-top:1px solid var(--line)}
+}
+
+.need{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.need > div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;align-content:start}
+@media (max-width:640px){.need{grid-template-columns:1fr}}
+.now{background:var(--navy);color:var(--on-navy);border-radius:12px;padding:20px 22px;display:grid;gap:12px}
+.now .label{color:var(--navy-accent)}
+.now ul.plain li{color:var(--on-navy-2)}
+.now ul.plain li b{color:var(--on-navy)}
+.now ul.plain li::before{background:var(--navy-accent)}
+.now p.small{color:var(--on-navy-2)}
+
+.terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.terms > div{padding:18px 20px;display:grid;gap:6px;border-bottom:1px solid var(--line)}
+.terms > div:nth-child(odd){border-right:1px solid var(--line)}
+.terms > div:nth-last-child(-n+2){border-bottom:0}
+.terms b{font-weight:600}
+.terms p{font-size:.93rem;color:var(--ink-2)}
+@media (max-width:640px){.terms{grid-template-columns:1fr}.terms > div:nth-child(odd){border-right:0}.terms > div:nth-last-child(2){border-bottom:1px solid var(--line)}}
+
+.faq{display:grid;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:last-child{border-bottom:0}
+.faq summary{list-style:none;cursor:pointer;padding:15px 18px;display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:baseline;font-weight:600;font-size:.96rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .n{font-family:var(--mono);color:var(--red);font-size:.85rem}
+.faq summary .plus{color:var(--ink-2);font-family:var(--mono)}
+.faq details[open] .plus{transform:rotate(45deg)}
+.faq .a{padding:0 18px 16px 62px;color:var(--ink-2);font-size:.94rem;max-width:72ch}
+@media (max-width:520px){.faq .a{padding-left:18px}}
+
+.next{background:var(--navy);color:var(--on-navy);border-radius:12px;padding:28px;display:grid;gap:14px}
+.next .eyebrow{color:var(--navy-accent)}
+.next ol{margin:0;padding-left:1.2em;display:grid;gap:8px;color:var(--on-navy-2)}
+.next ol b{color:var(--on-navy)}
+footer{font-size:.82rem;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{padding-block:24px}
+</style>
+<style>
+.sys{display:grid;gap:16px}
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.shots figure{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.shots img{display:block;width:100%;height:auto}
+.shots figcaption{font-size:.82rem;color:var(--ink-2);padding:8px 12px}
+.shots .wide{grid-column:1/-1}
+.pending{border:1px dashed var(--line);border-radius:10px;padding:28px;text-align:center;color:var(--ink-2);font-size:.92rem}
+@media (max-width:640px){.shots{grid-template-columns:1fr}}
+</style>
+<header class="cover"><div class="wrap">
+  <p class="eyebrow">Portfolio</p>
+  <h1>Guilherme Souza<br><em>platforms, admin areas and data tools</em></h1>
+  <p class="lead">A selection of systems I've designed and built: admin areas, CRMs, content platforms and real-time data tools. Client admin areas can't be shared publicly, but I'm happy to set up a test login for any of them.</p>
+</div></header>
+<nav class="toc" aria-label="Systems"><div class="wrap">
+  <a href="#whatsapp">WhatsApp CRM</a><a href="#express">Express CMS</a><a href="#leads">Lead tracking</a><a href="#pricing">Competitor pricing</a><a href="#moovia">MOOVIA</a><a href="#reizen">Reizen</a>
+</div></nav>
+<main><div class="wrap">
+
+<section id="whatsapp" class="sys">
+  <div class="sec-head"><p class="eyebrow">Official WhatsApp API</p><h2>WhatsApp CRM with a lead pipeline</h2><p>Shared inbox on the official WhatsApp API, with lead scoring, a sales pipeline, a live dashboard and broadcast lists with daily limits and anti-spam rules.</p></div>
+  <div class="chips"><span class="chip">Shared inbox</span><span class="chip">Lead pipeline</span><span class="chip">Live dashboard</span><span class="chip">Broadcasts with opt-out</span></div>
+  <div class="shots">
+    <figure><img src="img/01.jpg" alt="Inbox with conversations grouped by status"><figcaption>Inbox, with filters by status and owner</figcaption></figure>
+    <figure><img src="img/02.jpg" alt="Dashboard with lead metrics and charts"><figcaption>Dashboard: leads by day, source and stage</figcaption></figure>
+    <figure><img src="img/03.jpg" alt="Kanban sales pipeline"><figcaption>Pipeline from new lead to closed deal</figcaption></figure>
+    <figure><img src="img/04.jpg" alt="Broadcast list with limits"><figcaption>Broadcast lists with daily limits and opt-out</figcaption></figure>
+  </div>
+</section>
+
+<section id="express" class="sys">
+  <div class="sec-head"><p class="eyebrow">Content management · in final development</p><h2>Express Luxury Travel CMS</h2><p>The admin area behind a luxury travel website, part of a wider travel ecosystem. The team manages journeys, the home page, editorial content, galleries, banners and leads, with a live preview of the site. This is the closest to what I'd build for you.</p></div>
+  <div class="chips"><span class="chip">Page builder with preview</span><span class="chip">Journeys catalogue</span><span class="chip">Editorial journal</span><span class="chip">Leads and reviews</span><span class="chip">Bilingual site</span></div>
+  <div class="shots">
+    <figure class="wide"><img src="img/05.jpg" alt="Admin dashboard overview"><figcaption>Overview: journeys, leads, journal and galleries</figcaption></figure>
+    <figure><img src="img/06.jpg" alt="Home page sections with live preview"><figcaption>Home page sections with desktop and mobile preview</figcaption></figure>
+    <figure><img src="img/07.jpg" alt="Journeys list"><figcaption>Journeys with dates, type and seats</figcaption></figure>
+    <figure><img src="img/08.jpg" alt="Journal posts"><figcaption>Editorial journal with status and duplication</figcaption></figure>
+    <figure><img src="img/09.jpg" alt="Galleries list"><figcaption>Destination galleries</figcaption></figure>
+    <figure class="wide"><img src="img/10.jpg" alt="Banners with schedule and order"><figcaption>Banners with type, schedule and display order</figcaption></figure>
+  </div>
+</section>
+
+<section id="leads" class="sys">
+  <div class="sec-head"><p class="eyebrow">E-commerce</p><h2>Lead capture and tracking</h2><p>Real-time tracking of WhatsApp and marketplace leads for an online store, with conversion rates, source pages and status, plus a product catalogue synced from the store.</p></div>
+  <div class="shots">
+    <figure><img src="img/11.jpg" alt="WhatsApp leads dashboard"><figcaption>Leads by day, source page and status, in real time</figcaption></figure>
+    <figure><img src="img/12.jpg" alt="Product catalogue"><figcaption>Synced product catalogue with stock and Pix prices</figcaption></figure>
+  </div>
+</section>
+
+<section id="pricing" class="sys">
+  <div class="sec-head"><p class="eyebrow">Real-time analysis</p><h2>Competitor price comparison</h2><p>Matches products against a competitor's catalogue every 60 seconds and works out the markup needed to match or beat each price.</p></div>
+  <div class="shots">
+    <figure><img src="img/13.jpg" alt="Price comparison table"><figcaption>Automatic product matching and price differences</figcaption></figure>
+    <figure><img src="img/14.jpg" alt="Pricing equaliser"><figcaption>Equaliser: target price and markup on cost</figcaption></figure>
+  </div>
+</section>
+
+<section id="moovia" class="sys">
+  <div class="sec-head"><p class="eyebrow">Global mobility</p><h2>MOOVIA CMS, client deck and MAIA</h2><p>Admin area for a global mobility company: lead-to-mandate funnel, CRM, assessment booking, blog and content management, a client dashboard for tracking expatriates, and MAIA, an AI agent that greets and qualifies visitors on the website.</p></div>
+  <div class="chips"><span class="chip">Operational dashboard</span><span class="chip">Client deck</span><span class="chip">CRM pipeline</span><span class="chip">Assessment booking</span><span class="chip">AI agent</span></div>
+  <div class="shots">
+    <figure><img src="img/38.jpg" alt="Operational dashboard"><figcaption>Operational dashboard with an end-to-end conversion funnel</figcaption></figure>
+    <figure><img src="img/39.jpg" alt="Client dashboard"><figcaption>Client deck: mobility score, risk and upcoming assessments</figcaption></figure>
+    <figure><img src="img/40.jpg" alt="CRM pipeline"><figcaption>CRM pipeline from new lead to active mandate</figcaption></figure>
+    <figure><img src="img/41.jpg" alt="New booking form"><figcaption>Assessment booking with fee, status and payment</figcaption></figure>
+    <figure class="wide" style="max-width:420px;justify-self:center;grid-column:1/-1"><img src="img/42.jpg" alt="MAIA chat"><figcaption>MAIA, the AI agent on the website</figcaption></figure>
+  </div>
+</section>
+
+<section id="reizen" class="sys">
+  <div class="sec-head"><p class="eyebrow">Travel ecosystem</p><h2>Reizen</h2><p>A multi-tenant platform for travel companies that brings together catalogue, CMS, CRM, a WhatsApp inbox, behavioural analytics and AI agents. The system is very large, so this is only a selection. Everything shown is built and working, and I'm happy to send more screens or set up a test login.</p></div>
+  <div class="chips"><span class="chip">Multi-tenant</span><span class="chip">Catalogue and CMS</span><span class="chip">CRM and automations</span><span class="chip">WhatsApp inbox</span><span class="chip">Heatmaps and session replay</span><span class="chip">AI agents</span></div>
+  <h3>Catalogue and content</h3>
+  <div class="shots"><figure><img src="img/15.jpg" alt="Inventory of journeys with net price and seats"><figcaption>Inventory of journeys with net price and seats</figcaption></figure><figure><img src="img/16.jpg" alt="Catalogue: destinations, hotels and experiences"><figcaption>Catalogue: destinations, hotels and experiences</figcaption></figure><figure><img src="img/17.jpg" alt="Reusable components: cities, hotels, flights and more"><figcaption>Reusable components: cities, hotels, flights and more</figcaption></figure><figure><img src="img/18.jpg" alt="9-step product builder"><figcaption>9-step product builder</figcaption></figure><figure><img src="img/21.jpg" alt="Visual banner editor with timeline and live canvas"><figcaption>Visual banner editor with timeline and live canvas</figcaption></figure><figure><img src="img/19.jpg" alt="Editorial CMS with SEO and conversion metrics"><figcaption>Editorial CMS with SEO and conversion metrics</figcaption></figure><figure><img src="img/20.jpg" alt="Media galleries with automatic WebP conversion"><figcaption>Media galleries with automatic WebP conversion</figcaption></figure><figure><img src="img/22.jpg" alt="System settings: organisation, roles, permissions, domains and security"><figcaption>System settings: organisation, roles, permissions, domains and security</figcaption></figure></div>
+  <h3>CRM</h3>
+  <div class="shots"><figure><img src="img/23.jpg" alt="Relationship hub: contacts, pipeline value and timeline"><figcaption>Relationship hub: contacts, pipeline value and timeline</figcaption></figure><figure><img src="img/24.jpg" alt="Kanban pipelines with weighted value per stage"><figcaption>Kanban pipelines with weighted value per stage</figcaption></figure><figure><img src="img/25.jpg" alt="Lead record: journey, qualification, UTMs, notes and tasks"><figcaption>Lead record: journey, qualification, UTMs, notes and tasks</figcaption></figure><figure><img src="img/26.jpg" alt="Opportunities list with score and next action"><figcaption>Opportunities list with score and next action</figcaption></figure><figure><img src="img/27.jpg" alt="Tasks and commercial calendar"><figcaption>Tasks and commercial calendar</figcaption></figure><figure><img src="img/28.jpg" alt="Sales automations and response-time SLAs"><figcaption>Sales automations and response-time SLAs</figcaption></figure><figure><img src="img/29.jpg" alt="Sales reports: funnel, forecast and revenue by source"><figcaption>Sales reports: funnel, forecast and revenue by source</figcaption></figure></div>
+  <h3>Inbox</h3>
+  <div class="shots"><figure><img src="img/30.jpg" alt="Shared inbox with teams, tags and AI assist"><figcaption>Shared inbox with teams, tags and AI assist</figcaption></figure><figure><img src="img/31.jpg" alt="Official WhatsApp Business channel via Twilio"><figcaption>Official WhatsApp Business channel via Twilio</figcaption></figure></div>
+  <h3>Insights and on-site tools</h3>
+  <div class="shots"><figure><img src="img/32.jpg" alt="Real-time behavioural insights"><figcaption>Real-time behavioural insights</figcaption></figure><figure><img src="img/33.jpg" alt="Event tracking with no-code data attributes"><figcaption>Event tracking with no-code data attributes</figcaption></figure><figure><img src="img/34.jpg" alt="Session replay with storage governance"><figcaption>Session replay with storage governance</figcaption></figure><figure><img src="img/35.jpg" alt="Click, movement and scroll heatmaps"><figcaption>Click, movement and scroll heatmaps</figcaption></figure><figure><img src="img/36.jpg" alt="Popups with a rule engine (exit intent, scroll depth)"><figcaption>Popups with a rule engine (exit intent, scroll depth)</figcaption></figure></div>
+  <h3>AI agents</h3>
+  <div class="shots"><figure><img src="img/37.jpg" alt="Custom AI agent builder grounded in the catalogue and CRM"><figcaption>Custom AI agent builder grounded in the catalogue and CRM</figcaption></figure></div>
+</section>
+
+
+</div></main>
+<footer><div class="wrap">Guilherme Souza · Portfolio · November 2026</div></footer>
+
+</body></html>
